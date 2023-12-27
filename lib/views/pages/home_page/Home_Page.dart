@@ -3,7 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:job_portal/utils/appcolors.dart';
+import 'package:job_portal/views/pages/job/job_page.dart';
 import 'package:job_portal/views/widgets/custom_buttom.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,15 +16,19 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.only(top: 30),
           child: Column(
             children: [
-              Text(
-                "Your search for the next dream job is over 🚀",
-                style: TextStyle(
-                    color: AppColors.textColor,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 32),
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  "Your search for the next dream job is over 🚀",textAlign: TextAlign.center,
+                  style: TextStyle(
+                       wordSpacing: 4,
+                      color: AppColors.textColor,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 34),
+                ),
               ),
               SizedBox(
                 height: 20,
@@ -31,7 +37,9 @@ class HomePage extends StatelessWidget {
                   height: 56,
                   width: 336.w,
                   color: Color(0xFF5424FD),
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(JobPage());
+                  },
                   title: "start searching"),
               SizedBox(
                 height: 100,
@@ -40,11 +48,12 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   child: Stack(
+                    clipBehavior: Clip.none,
                     children: [
                       /// --------------------------Airbnb----------
                       _IconsButtomSection(
-                        bottom: 400,
-                        left: 35,
+                        bottom: 340,
+                        left: 0,
                         bgcolor: AppColors.red,
                         image: "assets/icons/logoAirbnb.svg",
                         name: "Airbnb",
@@ -55,18 +64,18 @@ class HomePage extends StatelessWidget {
                       /// --------------------------meta----------
                       _IconsButtomSection(
 
-                        left: 200,
-                        bottom: 400,
+                        right: 45,
+                        bottom: 370,
                         bgcolor: AppColors.iconsbuttomColor,
                         image: "assets/icons/meta.svg",
-                        name: "Tesla",
-                        transform: 0.3,
+                        name: "Meta",
+                        transform: 0.2,
                       ),
 
                       /// --------------------------MIcrosoft----------
                       _IconsButtomSection(
                         bgcolor: AppColors.iconsbuttomColor,
-                        bottom: 320,
+                        bottom: 250,
                         left: -30,
                         image: "assets/icons/logoMicrosoft.svg",
                         name: "Microsoft",
@@ -75,23 +84,23 @@ class HomePage extends StatelessWidget {
 
                       /// --------------------------Pepsi----------
                       _IconsButtomSection(
-                        bottom: 300,
-                        left: 100,
+                        bottom: 280,
+                        left: 135,
                         bgcolor: AppColors.iconsbuttomColor,
                         image: "assets/icons/logoPepsi.svg",
                         name: "Pepsi",
-                        transform: 0.05,
+                        transform: 0.1,
                       ),
 
 
                       /// --------------------------Tesla----------
                       _IconsButtomSection(
-                        bottom: 400,
-                        left: 360,
+                        bottom: 340,
+                        left: 370,
                         bgcolor: AppColors.red,
                         image: "assets/icons/logoTesla.svg",
                         name: "Tesla",
-                        transform: 1.8,
+                        transform: 1.7,
                       ),
 
                     ],
