@@ -109,43 +109,67 @@ class JobDetailsPage extends StatelessWidget {
                               children: [
                                 Container(
                                   height: 28,
-                                  width: 70,
+                                  width: 85,
                                   decoration: BoxDecoration(
                                       color: jobTypeContainerColor,
-                                      border: Border.all(color: Colors.white),
+                                      border: Border.all(color: textColor!.withAlpha(130)),
                                       borderRadius: BorderRadius.circular(24)),
                                   child: Center(
-                                    child: Text(
-                                      "${companyInfo["location"]}",
-                                      style: TextStyle(color: textColor),
+                                    child: FittedBox(
+                                      fit: BoxFit.cover,
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.location_on_outlined,color: textColor,),
+                                          Text(
+                                            "${companyInfo["location"]}",
+                                            style: TextStyle(color: textColor),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Container(
                                   height: 28,
-                                  width: 100,
+                                  width: 115,
                                   decoration: BoxDecoration(
                                       color: jobTypeContainerColor,
-                                      border: Border.all(color: Colors.white),
+                                      border: Border.all(color: textColor!.withAlpha(130)),
                                       borderRadius: BorderRadius.circular(24)),
                                   child: Center(
-                                    child: Text(
-                                      "${companyInfo["jobExperience"]}",
-                                      style: TextStyle(color: textColor),
+                                    child: FittedBox(
+                                      fit: BoxFit.cover,
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.school_outlined,color: textColor,),
+                                          Text(
+                                            "${companyInfo["jobExperience"]}",
+                                            style: TextStyle(color: textColor),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Container(
                                   height: 28,
-                                  width: 70,
+                                  width: 80,
                                   decoration: BoxDecoration(
                                       color: jobTypeContainerColor,
-                                      border: Border.all(color: Colors.white),
+                                      border: Border.all(color: textColor!.withAlpha(130)),
                                       borderRadius: BorderRadius.circular(24)),
                                   child: Center(
-                                    child: Text(
-                                      "${companyInfo["workTime"]}",
-                                      style: TextStyle(color: textColor),
+                                    child: FittedBox(
+                                      fit: BoxFit.cover,
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.watch_later_outlined,color: textColor,),
+                                          Text(
+                                            "${companyInfo["workTime"]}",
+                                            style: TextStyle(color: textColor),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 )
@@ -196,7 +220,7 @@ class JobDetailsPage extends StatelessWidget {
                  details: companyInfo["jobDescription"],
                 height: 188,
                 weight: 382,
-                icon: Icon(Icons.edit)
+                icon: Icon(Icons.edit,color: Colors.white,)
               ),
         
         
@@ -208,7 +232,7 @@ class JobDetailsPage extends StatelessWidget {
                   details: companyInfo["skillsAndRequirements"],
                   height: 214,
                   weight: 382,
-                  icon: Icon(Icons.check_circle_outline_sharp)
+                  icon: Icon(Icons.check_circle_outline_sharp,color: Colors.white,)
               ),
 
 
@@ -220,7 +244,7 @@ class JobDetailsPage extends StatelessWidget {
                   details: companyInfo["yourRole"],
                   height: 280,
                   weight: 382,
-                  icon: Icon(Icons.person)
+                  icon: Icon(Icons.person,color: Colors.white,)
               )
             ],
           ),

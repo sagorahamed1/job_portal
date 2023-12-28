@@ -17,7 +17,7 @@ class JobPostList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      // physics: NeverScrollableScrollPhysics(),
+       physics: NeverScrollableScrollPhysics(),
       itemCount: CompanyInfo.companyList.length,
       itemBuilder: (context, index) {
         var companyInfo = CompanyInfo.companyList[index];
@@ -27,16 +27,16 @@ class JobPostList extends StatelessWidget {
         Color? jobTypeContainerColor;
 
 
-        if(bgColor ==  Color(0xFF5424FD) || bgColor == Color(0xFFF5001E) ){
+        if(bgColor ==  Color(0xFF5424FD) ){
           textColor = AppColors.white;
           jobTypeContainerColor = Color(0xFF7650fd);
         }
         else if(bgColor == Color(0xFFF5001E)){
-          textColor == AppColors.white;
+          textColor = AppColors.white;
           jobTypeContainerColor = Color(0xFFf62640);
         }else{
           textColor = Colors.black;
-          jobTypeContainerColor == Color(0xFFd6a82e);
+          jobTypeContainerColor = Color(0xFFd6a82e);
         }
         return Column(
           children: [
@@ -63,7 +63,7 @@ class JobPostList extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Container(
-                                        margin: EdgeInsets.only(right: 20),
+                                        margin: EdgeInsets.only(right: 14),
                                         height: 48,
                                         width: 48,
                                         decoration: BoxDecoration(
@@ -76,7 +76,7 @@ class JobPostList extends StatelessWidget {
                                     Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text("${companyInfo["jobTitle"]}",style: TextStyle(color: textColor),),
+                                        Text("${companyInfo["jobTitle"]}",style: TextStyle(color: textColor,fontSize: 18),),
                                         Text("${companyInfo["companyName"]}",style: TextStyle(color: textColor),)
                                       ],
                                     )
@@ -91,37 +91,46 @@ class JobPostList extends StatelessWidget {
                                   children: [
                                     Container(
                                       height: 28,
-                                      width: 88,
+                                      width: 80,
                                       decoration: BoxDecoration(
                                           color: jobTypeContainerColor,
-                                          border: Border.all(color: Colors.white),
+                                          border: Border.all(color: textColor.withAlpha(130),),
                                           borderRadius: BorderRadius.circular(24)
 
                                       ),
-                                      child: Center(
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.location_on_outlined,color: textColor,),
-                                            Text("${companyInfo["location"]}",style: TextStyle(color: textColor,letterSpacing: 0.1),),
-                                          ],
+                                      child: FittedBox(
+                                        fit: BoxFit.cover,
+                                        child: Center(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(5),
+                                            child: Row(
+                                              children: [
+                                                Icon(Icons.location_on_outlined,color: textColor),
+                                                Text("${companyInfo["location"]}",style: TextStyle(color: textColor,letterSpacing: 0.1),),
+                                              ],
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
 
                                     Container(
                                       height: 28,
-                                      width: 123,
+                                      width: 115,
                                       decoration: BoxDecoration(
                                           color: jobTypeContainerColor,
-                                          border: Border.all(color: Colors.white),
+                                          border: Border.all(color: textColor.withAlpha(130)),
                                           borderRadius: BorderRadius.circular(24)
                                       ),
                                       child: Center(
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.school_outlined,color: textColor,),
-                                            Text("  ${companyInfo["jobExperience"]}",style: TextStyle(color: textColor,letterSpacing: 0.1),),
-                                          ],
+                                        child: FittedBox(
+                                          fit: BoxFit.cover,
+                                          child: Row(
+                                            children: [
+                                              Icon(Icons.school_outlined,color: textColor,),
+                                              Text("  ${companyInfo["jobExperience"]}",style: TextStyle(color: textColor,letterSpacing: 0.1),),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -131,15 +140,18 @@ class JobPostList extends StatelessWidget {
                                       width: 85,
                                       decoration: BoxDecoration(
                                           color: jobTypeContainerColor,
-                                          border: Border.all(color: Colors.white),
+                                          border: Border.all(color: textColor.withAlpha(130)),
                                           borderRadius: BorderRadius.circular(24)
                                       ),
                                       child: Center(
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.watch_later_outlined,color: textColor,),
-                                            Text("${companyInfo["workTime"]}",style: TextStyle(color: textColor),),
-                                          ],
+                                        child: FittedBox(
+                                          fit: BoxFit.cover,
+                                          child: Row(
+                                            children: [
+                                              Icon(Icons.watch_later_outlined,color: textColor,),
+                                              Text("${companyInfo["workTime"]}",style: TextStyle(color: textColor),),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     )
@@ -191,9 +203,16 @@ class JobPostList extends StatelessWidget {
                             color: Colors.white12,
                             borderRadius: BorderRadius.circular(30)),
                         child: Center(
-                            child: Text(
-                              "View",
-                              style: TextStyle(color: AppColors.white),
+                            child: Row(
+                             mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "View ",
+                                  style: TextStyle(color: AppColors.white),
+                                ),
+
+                                Icon(Icons.subdirectory_arrow_right_rounded,color: Colors.white,)
+                              ],
                             )),
                       ),
                     ),

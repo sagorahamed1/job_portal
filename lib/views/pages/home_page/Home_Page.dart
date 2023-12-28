@@ -100,8 +100,10 @@ class HomePage extends StatelessWidget {
                         bgcolor: AppColors.red,
                         image: "assets/icons/logoTesla.svg",
                         name: "Tesla",
-                        transform: 1.7,
+                        transform: 1.8,
                       ),
+                      
+                      Image.asset("assets/icons/companyImage.png")
 
                     ],
                   ),
